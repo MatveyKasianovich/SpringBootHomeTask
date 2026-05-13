@@ -24,7 +24,7 @@ public class PetService {
     public PetDto createPet(PetDto pet) {
 
         userService.getById(pet.getUserId());
-        var newPet = new PetDto(
+        PetDto newPet = new PetDto(
                 idCounter++, pet.getName(), pet.getUserId()
         );
         petMap.put(newPet.getId(), newPet);

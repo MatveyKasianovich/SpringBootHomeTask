@@ -23,18 +23,18 @@ public class UserService {
     }
 
     public UserDto createUser( UserDto user) {
-        var newUser=new UserDto(
+        UserDto newUser=new UserDto(
                 idCounter++,user.getName(),user.getEmail(),user.getAge()
         );
         userMap.put(newUser.getId(),newUser);
         return newUser;
     }
 
-    public  List<UserDto> getAllUsers() {
+    public List<UserDto> getAllUsers() {
         return userMap.values().stream().toList();
     }
 
-    public  UserDto getById(Long id) {
+    public UserDto getById(Long id) {
         if(!userMap.containsKey(id)){
             throw new NoSuchElementException("not found user by id={"+id+"}");
         }
@@ -42,7 +42,7 @@ public class UserService {
     }
 
 
-    public  UserDto updateUser( UserDto user,Long id) {
+    public UserDto updateUser( UserDto user,Long id) {
         if(!userMap.containsKey(id)){
             throw new NoSuchElementException("not found user by id={"+id+"}");
         }
