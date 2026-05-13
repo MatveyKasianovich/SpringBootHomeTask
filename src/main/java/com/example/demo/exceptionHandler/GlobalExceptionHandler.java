@@ -43,7 +43,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorMessageResponse> handleNotValidArgument(NoSuchElementException e) {
         log.error("Got NoSuchElementexception", e);
 
-        var errorDto =  new ErrorMessageResponse(
+        ErrorMessageResponse errorDto =  new ErrorMessageResponse(
                 "не существует сущности с таким id",
                 e.getMessage(),
                 LocalDateTime.now()

@@ -65,7 +65,7 @@ public class PetService {
 
     public void deletePetsByUserId(Long userId){
         List<Long> idToDelete=petMap.values().stream()
-                .filter(pet->pet.getUserId()==userId)
+                .filter(pet->pet.getUserId() == userId)
                 .map(PetDto::getId)
                 .toList();
         idToDelete.forEach(petMap::remove);
