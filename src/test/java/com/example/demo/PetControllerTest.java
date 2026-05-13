@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.model.PetDto;
+import com.example.demo.model.UserDto;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.http.MediaType;
 import org.junit.jupiter.api.Test;

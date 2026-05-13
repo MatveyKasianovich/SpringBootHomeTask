@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.controller;
 
+import com.example.demo.service.PetService;
+import com.example.demo.model.PetDto;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +31,7 @@ public class PetController {
     @GetMapping
     public ResponseEntity<List<PetDto>> allPets(){
         log.info("called method to return all pets");
-        return ResponseEntity.status(HttpStatus.OK).body(petService.allPets());
+        return ResponseEntity.status(HttpStatus.OK).body(petService.getAllPets());
     }
 
     @GetMapping("/{id}")

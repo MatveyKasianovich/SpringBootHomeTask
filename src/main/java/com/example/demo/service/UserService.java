@@ -1,7 +1,6 @@
-package com.example.demo;
+package com.example.demo.service;
 
-import jakarta.validation.Valid;
-import org.jspecify.annotations.Nullable;
+import com.example.demo.model.UserDto;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +10,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @Service
-class UserService {
+public class UserService {
 
     private final PetService petService;
     private final Map<Long, UserDto> userMap;
@@ -31,7 +30,7 @@ class UserService {
         return newUser;
     }
 
-    public  List<UserDto> allUsers() {
+    public  List<UserDto> getAllUsers() {
         return userMap.values().stream().toList();
     }
 
@@ -48,7 +47,7 @@ class UserService {
             throw new NoSuchElementException("not found user by id={"+id+"}");
         }
 
-        UserDto updatedUser=new UserDto(id,user.getName(), user.getEmail(),user.getAge());
+        UserDto updatedUser = new UserDto(id,user.getName(), user.getEmail(),user.getAge());
         userMap.put(id,updatedUser);
 
         return updatedUser;
@@ -57,7 +56,7 @@ class UserService {
 
     public void deleteUser(Long id) {
         if(!userMap.containsKey(id)){
-            throw new NoSuchElementException("not found user by id={"+id+"}");
+            throw new NoSuchElementException("not found user by id=%s".formatted(id));
         }
 
         UserDto deletedUser=userMap.get(id);

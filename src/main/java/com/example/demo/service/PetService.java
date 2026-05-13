@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.service;
 
+import com.example.demo.service.PetService;
+import com.example.demo.model.PetDto;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -30,7 +32,7 @@ public class PetService {
         return newPet;
     }
 
-    public List<PetDto> allPets() {
+    public List<PetDto> getAllPets() {
         return petMap.values().stream().toList();
     }
 
